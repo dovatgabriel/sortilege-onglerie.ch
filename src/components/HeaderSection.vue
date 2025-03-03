@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+enum constants {
+  EMAIL = 'contact@sortilege-onglerie.ch',
+  INSTAGRAM = 'https://www.instagram.com/sortilegeonglerie/',
+  FACEBOOK = 'https://www.facebook.com/profile.php?id=100090384391532',
+}
+
+const openSocial = (url: string) => window.open(url, '_blank');
+</script>
+
 <template>
   <div class="header-section">
     <img src="@/assets/icon.png" alt="icon" class="icon" />
@@ -6,11 +16,14 @@
       Qualité suisse
       <img src="@/assets/swiss-flag.webp" alt="swiss-flag" class="swiss-flag" />
     </span>
-    <span class="email">contact@sortilege-onglerie.ch</span>
+    <a :href="`mailto:${constants.EMAIL}`" class="email">
+      {{ constants.EMAIL }}
+    </a>
     <div class="social">
-      <i class="pi pi-instagram" />
-      <i class="pi pi-facebook" />
+      <i class="pi pi-instagram" @click="openSocial(constants.INSTAGRAM)" />
+      <i class="pi pi-facebook" @click="openSocial(constants.FACEBOOK)" />
     </div>
+    <img class="cat" src="@/assets/cat.png" alt="cat" />
   </div>
 </template>
 
@@ -18,12 +31,13 @@
 .header-section {
   background-color: #f8f8f8;
   padding: 20px;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
+  position: relative;
 
   .icon {
     width: 200px;
@@ -53,6 +67,7 @@
     cursor: pointer;
     user-select: none;
     transition: all 200ms ease;
+    color: #333333;
 
     &:hover {
       opacity: 0.5;
@@ -75,6 +90,13 @@
         opacity: 0.5;
       }
     }
+  }
+
+  .cat {
+    position: absolute;
+    bottom: -14px;
+    right: 20%;
+    width: 130px;
   }
 }
 </style>

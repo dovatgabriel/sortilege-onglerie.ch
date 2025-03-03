@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import HeaderSection from '@/components/HeaderSection.vue';
+import SocialSection from '@/components/SocialSection.vue';
 </script>
 
 <template>
   <HeaderSection />
+  <SocialSection />
 </template>
 
 <style lang="scss">

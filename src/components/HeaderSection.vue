@@ -1,11 +1,7 @@
 <script lang="ts" setup>
 enum constants {
   EMAIL = 'contact@sortilege-onglerie.ch',
-  INSTAGRAM = 'https://www.instagram.com/sortilegeonglerie/',
-  FACEBOOK = 'https://www.facebook.com/profile.php?id=100090384391532',
 }
-
-const openSocial = (url: string) => window.open(url, '_blank');
 </script>
 
 <template>
@@ -19,10 +15,6 @@ const openSocial = (url: string) => window.open(url, '_blank');
     <a :href="`mailto:${constants.EMAIL}`" class="email">
       {{ constants.EMAIL }}
     </a>
-    <div class="social">
-      <i class="pi pi-instagram" @click="openSocial(constants.INSTAGRAM)" />
-      <i class="pi pi-facebook" @click="openSocial(constants.FACEBOOK)" />
-    </div>
     <img class="cat" src="@/assets/cat.png" alt="cat" />
   </div>
 </template>
@@ -30,14 +22,15 @@ const openSocial = (url: string) => window.open(url, '_blank');
 <style lang="scss" scoped>
 .header-section {
   background-color: #f8f8f8;
-  padding: 20px;
-  height: 70vh;
+  padding: 5px 20px 20px 20px;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
   position: relative;
+  text-align: center;
 
   .icon {
     width: 200px;
@@ -75,28 +68,11 @@ const openSocial = (url: string) => window.open(url, '_blank');
     }
   }
 
-  .social {
-    display: flex;
-    gap: 20px;
-    font-size: 2rem;
-    margin: 0.5em 0 0 0;
-
-    i {
-      cursor: pointer;
-      user-select: none;
-      transition: all 200ms ease;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
   .cat {
     position: absolute;
     bottom: -14px;
     right: 20%;
-    width: 130px;
+    width: 120px;
   }
 }
 </style>
